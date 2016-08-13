@@ -17,8 +17,6 @@ class App extends Component {
     const goTo = (index) => () => { newGame(); navigator.push(routes[index]); }
     const goBack = () => { navigator.pop(); }
 
-    // console.table(props.gameBoard);
-
     switch (route.title) {
 
       case 'Game':
@@ -45,9 +43,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     appName: state.appName,
+    player: state.players[state.currentPlayer],
     gameBoard: state.gameBoard,
     routes: state.routes,
   };

@@ -5,7 +5,7 @@ import GameSpace from './GameSpace';
 import styles from '../styles';
 
 export default function GameBoard(props) {
-  const rows = columns = [0, 1, 2];
+  const rows = columns = [0, 1, 2, 3];
 
   return (
     <View style={styles.gameBoard}>

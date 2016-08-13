@@ -6,11 +6,12 @@ const initialState = {
   appName: 'TriTacToe',
   currentPlayer: 0,
   gameBoard: [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
   ],
-  players: ['A','M','D'],
+  players: ['Adela', 'Mommy', 'Daddy'],
   routes: [
     { title: 'Welcome', index: 0 },
     { title: 'Game', index: 1 },
@@ -33,8 +34,9 @@ export default function rootReducer(state = initialState, action) {
       const [row, column] = action.position;
 
       const gameBoard = cloneDeep(lastGameBoard);
+      gameBoard[row][column] = players[lastPlayer][0];
+
       const currentPlayer = (lastPlayer + 1) % players.length;
-      gameBoard[row][column] = players[currentPlayer];
 
       return Object.assign({}, state, { gameBoard, currentPlayer });
     }
