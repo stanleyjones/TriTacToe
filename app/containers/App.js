@@ -20,7 +20,7 @@ class App extends Component {
     switch (route.title) {
 
       case 'Game':
-        return <Game {...props} goBack={goBack} />;
+        return <Game {...props} newGame={newGame} />;
 
       case 'Welcome':
       default:
@@ -45,8 +45,9 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     appName: state.appName,
-    player: state.players[state.currentPlayer],
-    gameBoard: state.gameBoard,
+    player: state.game.players[state.game.player],
+    board: state.game.board,
+    condition: state.game.condition,
     routes: state.routes,
   };
 }

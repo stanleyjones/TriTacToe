@@ -1,3 +1,4 @@
+export { default as Button } from './Button';
 export { default as Game } from './Game';
 export { default as GameBoard } from './GameBoard';
 export { default as GameSpace } from './GameSpace';

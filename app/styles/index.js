@@ -45,7 +45,7 @@ export default StyleSheet.create({
   },
 
   gameSpace: {
-    backgroundColor: 'green',
+    backgroundColor: 'black',
     height: 75,
     justifyContent: 'center',
     margin: 5,

@@ -1,18 +1,26 @@
 import React from 'react';
 import { Text, TouchableHighlight } from 'react-native';
 
+import Button from './Button';
 import GameBoard from './GameBoard';
 import Scene from './Scene';
 import styles from '../styles';
 
-export default function Game({ goBack, player, ...props }) {
+const statusText = (condition, player) => {
+  switch(condition) {
+    case 0:
+    case 1: return <Text style={styles.text}>{player}'s turn</Text>
+    case 2: return <Text style={styles.text}>{player} wins!</Text>
+    case 3: return <Text style={styles.text}>No one wins</Text>
+  }
+}
+
+export default function Game({ condition, newGame, player, ...props }) {
   return (
     <Scene style={styles.game}>
-      <Text style={styles.text}>{player}'s Turn</Text>
-      <GameBoard {...props} />
-      <TouchableHighlight style={styles.button} onPress={goBack}>
-        <Text style={styles.buttonText}>Back</Text>
-      </TouchableHighlight>
+      {statusText(condition, player)}
+      <GameBoard {...props} condition={condition}/>
+      {condition > 1 ? <Button onPress={newGame}>New Game</Button> : null}
     </Scene>
   );
 }
