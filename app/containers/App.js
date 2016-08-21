@@ -13,9 +13,7 @@ class App extends Component {
 
   renderScene(route, navigator) {
     const { appName, newGame, routes, ...props } = this.props;
-
-    const goTo = (index) => () => { newGame(); navigator.push(routes[index]); }
-    const goBack = () => { navigator.pop(); }
+    const startGame = () => { navigator.push(routes[1]); newGame(); }
 
     switch (route.title) {
 
@@ -24,7 +22,7 @@ class App extends Component {
 
       case 'Welcome':
       default:
-        return <Welcome newGame={goTo(1)}>{appName}</Welcome>;
+        return <Welcome startGame={startGame}>{appName}</Welcome>;
 
     }
   }

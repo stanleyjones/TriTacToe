@@ -13,14 +13,23 @@ const text = {
   color: 'white',
   fontFamily: 'HelveticaNeue-UltraLight',
   fontSize: 24,
-  textAlign: 'center',
+  lineHeight: 24,
   margin: 10,
+  textAlign: 'center',
 };
 
 export default StyleSheet.create({
 
+  bigText: {
+    ...text,
+    color: 'yellow',
+    fontSize: 64,
+    lineHeight: 64,
+    margin: 10,
+  },
+
   button: {
-    backgroundColor: 'yellow',
+    backgroundColor: 'white',
     borderRadius: 5,
     margin: 10,
     opacity: 0.5,
@@ -32,6 +41,7 @@ export default StyleSheet.create({
     color: 'black',
     fontFamily: 'HelveticaNeue-Light',
     fontSize: 14,
+    lineHeight: 14,
     margin: 0,
   },
 
@@ -53,17 +63,28 @@ export default StyleSheet.create({
     width: 75,
   },
 
-  welcome: {
-    ...scene,
+  playerIcon: {
+    borderRadius: 9,
+    height: 18,
+    width: 18,
   },
 
-  bigText: {
-    ...text,
-    color: 'yellow',
-    fontSize: 64,
-    margin: 10,
+  region: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
   },
 
   text,
+
+  token: {
+    borderRadius: 50,
+    flex: 1,
+    margin: 10,
+  },
+
+  welcome: {
+    ...scene,
+  },
 
 });

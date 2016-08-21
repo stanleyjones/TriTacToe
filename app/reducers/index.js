@@ -6,12 +6,11 @@ import { NEW_GAME, SELECT_SPACE } from '../actions';
 // CONSTANTS
 
 const GRID = 4;
-const PLAYERS = ['Adela', 'Mommy', 'Daddy'];
+const PLAYERS = ['#FFD219', '#FF00E5', '#14CCBB'];
 
 // HELPERS
 
 const createBoard = grid => new Array(grid).fill([]).map(row => new Array(grid).fill(null));
-const randomPlayer = players => Math.floor(Math.random() * players.length);
 
 // @TODO: build dynamically
 const winningCombinations = [
@@ -66,7 +65,7 @@ const initialState = {
     board: createBoard(GRID),
     condition: 0,
     player: 0,
-    players: shuffle(PLAYERS),
+    players: PLAYERS,
     turn: 0,
   },
   routes: [
@@ -89,7 +88,7 @@ export default function rootReducer(state = initialState, action) {
       const [row, col] = action.position;
 
       const board = cloneDeep(lastBoard);
-      board[row][col] = players[lastPlayer][0];
+      board[row][col] = players[lastPlayer];
 
       const condition = didPlayerWin(board) ? 2 : turn === 15 ? 3 : 1;
       const player = condition < 2 ? (lastPlayer + 1) % players.length : lastPlayer;

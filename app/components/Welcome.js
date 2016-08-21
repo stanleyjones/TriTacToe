@@ -11,7 +11,7 @@ export default function Welcome(props) {
     <Scene style={styles.welcome}>
       <Text style={styles.bigText}>{props.children}</Text>
       <Text style={styles.text}>Adela's first video game</Text>
-      <Button onPress={props.newGame}>New Game</Button>
+      <Button onPress={props.startGame}>Start Game</Button>
     </Scene>
   );
 }
