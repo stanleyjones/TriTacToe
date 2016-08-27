@@ -26,6 +26,7 @@
 		48E01BBB1D71D94E006B8833 /* lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48E01BB81D71D94E006B8833 /* lose.mp3 */; };
 		48E01BBC1D71D94E006B8833 /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48E01BB91D71D94E006B8833 /* select.mp3 */; };
 		48E01BBD1D71D94E006B8833 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48E01BBA1D71D94E006B8833 /* win.mp3 */; };
+		48E01BBF1D71DAD6006B8833 /* select.wav in Resources */ = {isa = PBXBuildFile; fileRef = 48E01BBE1D71DAD6006B8833 /* select.wav */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		48E01BB81D71D94E006B8833 /* lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lose.mp3; path = ../assets/lose.mp3; sourceTree = "<group>"; };
 		48E01BB91D71D94E006B8833 /* select.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = select.mp3; path = ../assets/select.mp3; sourceTree = "<group>"; };
 		48E01BBA1D71D94E006B8833 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = win.mp3; path = ../assets/win.mp3; sourceTree = "<group>"; };
+		48E01BBE1D71DAD6006B8833 /* select.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = select.wav; path = ../assets/select.wav; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -250,6 +252,7 @@
 		13B07FAE1A68108700A75B9A /* TriTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				48E01BBE1D71DAD6006B8833 /* select.wav */,
 				48E01BB81D71D94E006B8833 /* lose.mp3 */,
 				48E01BB91D71D94E006B8833 /* select.mp3 */,
 				48E01BBA1D71D94E006B8833 /* win.mp3 */,
@@ -380,7 +383,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -553,6 +556,7 @@
 				48E01BBC1D71D94E006B8833 /* select.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				48E01BBF1D71DAD6006B8833 /* select.wav in Resources */,
 				48E01BBB1D71D94E006B8833 /* lose.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,6 +632,7 @@
 				INFOPLIST_FILE = TriTacToeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TriTacToe.app/TriTacToe";
 			};
@@ -641,6 +646,7 @@
 				INFOPLIST_FILE = TriTacToeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TriTacToe.app/TriTacToe";
 			};
@@ -665,6 +671,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = TriTacToe;
 				PROVISIONING_PROFILE = "";
 			};
@@ -688,6 +695,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = TriTacToe;
 				PROVISIONING_PROFILE = "";
 			};
@@ -713,6 +721,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;

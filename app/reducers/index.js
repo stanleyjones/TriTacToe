@@ -9,7 +9,11 @@ import { NEW_GAME, SELECT_SPACE } from '../actions';
 const GRID = 4;
 const PLAYERS = ['#FFD219', '#FF00E5', '#14CCBB'];
 
-const selectSound = new Sound('select.mp3', Sound.MAIN_BUNDLE, err => { console.log(err); });
+const SOUNDS = {
+  lose: new Sound('lose.mp3', Sound.MAIN_BUNDLE),
+  select: new Sound('select.mp3', Sound.MAIN_BUNDLE),
+  win: new Sound('win.mp3', Sound.MAIN_BUNDLE),
+};
 
 // HELPERS
 
@@ -87,7 +91,7 @@ export default function rootReducer(state = initialState, action) {
       } });
 
     case SELECT_SPACE: {
-      selectSound.play();
+      SOUNDS.select.play();
 
       const { game: { board: lastBoard, player: lastPlayer, players, turn } } = state;
       const [row, col] = action.position;
@@ -97,6 +101,9 @@ export default function rootReducer(state = initialState, action) {
 
       const condition = didPlayerWin(board) ? 2 : turn === 15 ? 3 : 1;
       const player = condition < 2 ? (lastPlayer + 1) % players.length : lastPlayer;
+
+      if (condition === 2) { SOUNDS.win.play(); }
+      if (condition === 3) { SOUNDS.lose.play(); }
 
       return Object.assign({}, state, { game: {
         condition,
