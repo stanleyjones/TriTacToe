@@ -1,5 +1,6 @@
 import cloneDeep from 'lodash/cloneDeep';
 import shuffle from 'lodash/shuffle';
+import Sound from 'react-native-sound';
 
 import { NEW_GAME, SELECT_SPACE } from '../actions';
 
@@ -7,6 +8,8 @@ import { NEW_GAME, SELECT_SPACE } from '../actions';
 
 const GRID = 4;
 const PLAYERS = ['#FFD219', '#FF00E5', '#14CCBB'];
+
+const selectSound = new Sound('select.mp3', Sound.MAIN_BUNDLE, err => { console.log(err); });
 
 // HELPERS
 
@@ -84,6 +87,8 @@ export default function rootReducer(state = initialState, action) {
       } });
 
     case SELECT_SPACE: {
+      selectSound.play();
+
       const { game: { board: lastBoard, player: lastPlayer, players, turn } } = state;
       const [row, col] = action.position;
 
