@@ -21,9 +21,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    player: state.game.players[state.game.player],
-    board: state.game.board,
-    condition: state.game.condition,
+    player: state.players[state.player],
+    board: state.board,
+    condition: state.condition,
   };
 }
 const mapDispatchToProps = dispatch => bindActionCreators({

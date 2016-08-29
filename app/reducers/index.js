@@ -17,13 +17,17 @@ const SOUNDS = {
 
 // HELPERS
 
-const createGame = (grid, players) => ({
-  board: createBoard(grid),
-  condition: 0,
-  player: 0,
-  players: shuffle(players),
-  turn: 0,
-});
+const createGame = (grid, players) => {
+  const board = createBoard(grid);
+  return {
+    board,
+    condition: 0,
+    player: 0,
+    players: shuffle(players),
+    turn: 0,
+    winCombos: getWinCombos(board),
+  };
+};
 
 const createBoard = grid => new Array(grid).fill([]).map(row => new Array(grid).fill(null));
 
@@ -45,8 +49,8 @@ const getWinCombos = board =>
 
 const getSpace = (board, [row, col]) => board[row][col];
 
-const didPlayerWin = board =>
-  getWinCombos(board).some(combination => {
+const didPlayerWin = (board, winCombos) =>
+  winCombos.some(combination => {
     const firstSpace = getSpace(board, combination[0]);
     return combination.every(position => {
       const space = getSpace(board, position);
@@ -54,8 +58,8 @@ const didPlayerWin = board =>
     });
   });
 
-const canAnyPlayerWin = board =>
-  getWinCombos(board).some(combination => {
+const canAnyPlayerWin = (board, winCombos) =>
+  winCombos.some(combination => {
     const players = combination.reduce((players, position) => {
       const space = getSpace(board, position);
       return space ? players.concat(space) : players;
@@ -65,46 +69,36 @@ const canAnyPlayerWin = board =>
 
 // REDUCER
 
-const initialState = {
-  appName: 'TriTacToe',
-  game: createGame(GRID, PLAYERS),
-  routes: [
-    { title: 'Welcome', index: 0 },
-    { title: 'Game', index: 1 },
-  ],
-};
-
-export default function rootReducer(state = initialState, action) {
+export default function rootReducer(state = createGame(GRID, PLAYERS), action) {
   switch (action.type) {
 
     case NEW_GAME:
-      return Object.assign({}, state, { game: createGame(GRID, PLAYERS) });
+      return createGame(GRID, PLAYERS);
 
     case SELECT_SPACE: {
       SOUNDS.select.play();
 
-      const { game: { board: lastBoard, player: lastPlayer, players, turn } } = state;
+      const { board: lastBoard, player: lastPlayer, players, turn, winCombos } = state;
       const [row, col] = action.position;
 
       const board = cloneDeep(lastBoard);
       board[row][col] = players[lastPlayer];
 
       let condition = 1;
-      if (didPlayerWin(board)) { condition = 2; }
-      if (!canAnyPlayerWin(board)) { condition = 3; }
+      if (didPlayerWin(board, winCombos)) { condition = 2; }
+      if (!canAnyPlayerWin(board, winCombos)) { condition = 3; }
 
       const player = condition < 2 ? (lastPlayer + 1) % players.length : lastPlayer;
 
       if (condition === 2) { SOUNDS.win.play(); }
       if (condition === 3) { SOUNDS.lose.play(); }
 
-      return Object.assign({}, state, { game: {
+      return Object.assign({}, state, {
         condition,
         player,
-        players,
         board,
         turn: turn + 1,
-      } });
+      });
     }
 
     default:
