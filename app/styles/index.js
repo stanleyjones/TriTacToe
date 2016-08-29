@@ -1,14 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-const color = 'white';
-
-const scene = {
-  alignItems: 'center',
-  backgroundColor: '#222',
-  flex: 1,
-  justifyContent: 'center',
-};
-
 const text = {
   color: 'white',
   fontFamily: 'HelveticaNeue-UltraLight',
@@ -25,7 +16,6 @@ export default StyleSheet.create({
     color: 'yellow',
     fontSize: 64,
     lineHeight: 64,
-    margin: 10,
   },
 
   button: {
@@ -46,7 +36,10 @@ export default StyleSheet.create({
   },
 
   game: {
-    ...scene,
+    alignItems: 'center',
+    backgroundColor: '#222',
+    flex: 1,
+    justifyContent: 'center',
   },
 
   gameBoard: {
@@ -81,10 +74,6 @@ export default StyleSheet.create({
     borderRadius: 50,
     flex: 1,
     margin: 10,
-  },
-
-  welcome: {
-    ...scene,
   },
 
 });

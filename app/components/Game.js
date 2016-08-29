@@ -1,6 +1,6 @@
 import Color from 'color';
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import {
   Button,
@@ -26,10 +26,10 @@ export default function Game({ condition, newGame, player, ...props }) {
     ? { backgroundColor: Color(player).darken(0.67).hexString() }
     : {};
   return (
-    <Scene style={{ ...StyleSheet.flatten(styles.game), ...winStyle }}>
+    <View style={{ ...StyleSheet.flatten(styles.game), ...winStyle }}>
       <Region>{statusText(condition, player)}</Region>
       <Region><GameBoard {...props} condition={condition}/></Region>
       <Region>{condition > 1 ? <Button onPress={newGame}>New Game</Button> : null}</Region>
-    </Scene>
+    </View>
   );
 }
