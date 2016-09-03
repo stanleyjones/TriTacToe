@@ -8,9 +8,16 @@ import styles from '../styles';
 export default function GameBoard(props) {
   const rows = cols = props.board.map((row, index) => index);
   return (
-    <View style={styles.gameBoard}>{rows.map(row => (
+    <View style={styles.gameBoard}>{rows.map((row, rowIndex) => (
       <View key={row} style={{flexDirection: 'row'}}>
-        {cols.map(col => <GameSpace {...props} key={col} position={[row, col]} /> )}
+        {cols.map((col, colIndex) => (
+          <GameSpace
+            {...props}
+            index={rows.length * rowIndex + colIndex}
+            key={col}
+            position={[row, col]}
+          />
+        ))}
       </View>
     ))}</View>
   );

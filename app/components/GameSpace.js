@@ -11,13 +11,13 @@ export default class GameSpace extends Component {
   }
 
   componentDidMount() {
-    Animated.timing(this.state.opacity, { toValue: 1, delay: Math.random() * 1000 }).start();
+    Animated.timing(this.state.opacity, { toValue: 1, delay: this.props.index * 50 }).start();
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.condition === 0) {
       this.state.opacity.setValue(0);
-      Animated.timing(this.state.opacity, { toValue: 1, delay: Math.random() * 1000 }).start();
+      Animated.timing(this.state.opacity, { toValue: 1, delay: this.props.index * 50 }).start();
     }
   }
 
