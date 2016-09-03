@@ -19,19 +19,16 @@ export default StyleSheet.create({
   },
 
   button: {
-    backgroundColor: 'white',
+    borderColor: 'white',
     borderRadius: 5,
+    borderWidth: 0.5,
     margin: 10,
-    opacity: 0.5,
     padding: 10,
   },
 
   buttonText: {
     ...text,
-    color: 'black',
-    fontFamily: 'HelveticaNeue-Light',
-    fontSize: 14,
-    lineHeight: 14,
+    fontFamily: 'HelveticaNeue-UltraLight',
     margin: 0,
   },
 
@@ -49,6 +46,7 @@ export default StyleSheet.create({
 
   gameSpace: {
     backgroundColor: 'black',
+    borderRadius: 5,
     height: 75,
     justifyContent: 'center',
     margin: 5,

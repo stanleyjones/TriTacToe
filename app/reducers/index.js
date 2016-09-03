@@ -6,7 +6,7 @@ import { NEW_GAME, SELECT_SPACE } from '../actions';
 
 // CONSTANTS
 
-const GRID = 4;
+export const GRID = 4;
 const PLAYERS = ['#FFD219', '#FF00E5', '#14CCBB'];
 
 const SOUNDS = {

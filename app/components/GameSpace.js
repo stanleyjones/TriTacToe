@@ -1,19 +1,48 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import React, { Component } from 'react';
+import { Animated, Dimensions, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 
 import styles from '../styles';
+import { GRID } from '../reducers';
 
-export default function GameSpace({ board, condition, position, selectSpace }) {
-  const [row, col] = position;
-  const onPress = position => () => { selectSpace(position); }
+export default class GameSpace extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { opacity: new Animated.Value(0) };
+  }
 
-  return board[row][col] || condition > 1 ? (
-    <View style={styles.gameSpace}>
-      <View style={{ ...StyleSheet.flatten(styles.token), backgroundColor: board[row][col] }} />
-    </View>
-  ) : (
-    <TouchableHighlight onPress={onPress(position)} style={styles.gameSpace}>
-      <View />
-    </TouchableHighlight>
-  );
+  componentDidMount() {
+    Animated.timing(this.state.opacity, { toValue: 1, delay: Math.random() * 1000 }).start();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.condition === 0) {
+      this.state.opacity.setValue(0);
+      Animated.timing(this.state.opacity, { toValue: 1, delay: Math.random() * 1000 }).start();
+    }
+  }
+
+  render() {
+    const { board, condition, position, selectSpace } = this.props;
+    const [row, col] = position;
+    const { height, width } = Dimensions.get('window');
+    const onPress = position => () => { selectSpace(position); }
+    const spaceSize = (Math.min(height, width) - GRID * 10 - 20) / GRID;
+    const gameSpaceStyle = {
+      ...StyleSheet.flatten(styles.gameSpace),
+      height: spaceSize,
+      width: spaceSize,
+    };
+
+    return board[row][col] || condition > 1 ? (
+      <View style={gameSpaceStyle}>
+        <View style={{ ...StyleSheet.flatten(styles.token), backgroundColor: board[row][col] }} />
+      </View>
+    ) : (
+      <Animated.View style={{ opacity: this.state.opacity }}>
+        <TouchableHighlight onPress={onPress(position)} style={gameSpaceStyle}>
+          <View />
+        </TouchableHighlight>
+      </Animated.View>
+    );
+  }
 }
