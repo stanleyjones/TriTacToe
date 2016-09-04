@@ -19,10 +19,6 @@ export default StyleSheet.create({
     padding: 10,
   },
 
-  boo: {
-    color: 'white',
-  },
-
   buttonText: Object.assign({}, text, {
     fontSize: 24,
     lineHeight: 24,
