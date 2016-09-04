@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Text, TouchableHighlight } from 'react-native';
 
 import styles from '../styles';
@@ -10,3 +10,7 @@ export default function Button(props) {
     </TouchableHighlight>
   );
 }
+Button.propTypes = {
+  onPress: PropTypes.func,
+  children: PropTypes.node,
+};

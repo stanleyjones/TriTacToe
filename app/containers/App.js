@@ -6,26 +6,17 @@ import { Game } from '../components';
 import { newGame, selectSpace } from '../actions';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    newGame();
-  }
-
-  render() {
-    return <Game {...this.props} />;
-  }
+  componentDidMount() { newGame(); }
+  render() { return <Game {...this.props} />; }
 }
 
-const mapStateToProps = state => {
-  return {
-    player: state.players[state.player],
-    board: state.board,
-    condition: state.condition,
-  };
-}
+const mapStateToProps = state => ({
+  player: state.players[state.player],
+  board: state.board,
+  condition: state.condition,
+  winCombos: state.winCombos,
+});
+
 const mapDispatchToProps = dispatch => bindActionCreators({
   newGame,
   selectSpace,

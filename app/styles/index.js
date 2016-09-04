@@ -3,20 +3,13 @@ import { StyleSheet } from 'react-native';
 const text = {
   color: 'white',
   fontFamily: 'HelveticaNeue-UltraLight',
-  fontSize: 24,
-  lineHeight: 24,
+  fontSize: 48,
+  lineHeight: 48,
   margin: 10,
   textAlign: 'center',
 };
 
 export default StyleSheet.create({
-
-  bigText: {
-    ...text,
-    color: 'yellow',
-    fontSize: 64,
-    lineHeight: 64,
-  },
 
   button: {
     borderColor: 'white',
@@ -26,11 +19,15 @@ export default StyleSheet.create({
     padding: 10,
   },
 
-  buttonText: {
-    ...text,
-    fontFamily: 'HelveticaNeue-UltraLight',
-    margin: 0,
+  boo: {
+    color: 'white',
   },
+
+  buttonText: Object.assign({}, text, {
+    fontSize: 24,
+    lineHeight: 24,
+    margin: 0,
+  }),
 
   game: {
     alignItems: 'center',
@@ -45,6 +42,7 @@ export default StyleSheet.create({
   },
 
   gameSpace: {
+    alignItems: 'center',
     backgroundColor: 'black',
     borderRadius: 5,
     height: 75,
@@ -55,9 +53,9 @@ export default StyleSheet.create({
   },
 
   playerIcon: {
-    borderRadius: 9,
-    height: 18,
-    width: 18,
+    borderRadius: 18,
+    height: 36,
+    width: 36,
   },
 
   region: {
@@ -66,12 +64,10 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
 
-  text,
-
-  token: {
-    borderRadius: 50,
-    flex: 1,
-    margin: 10,
+  row: {
+    flexDirection: 'row',
   },
+
+  text,
 
 });

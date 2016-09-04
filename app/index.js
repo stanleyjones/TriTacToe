@@ -8,9 +8,5 @@ import rootReducer from './reducers';
 const store = createStore(rootReducer);
 
 export default function TriTacToe() {
-  return (
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
+  return <Provider store={store}><App /></Provider>;
 }
