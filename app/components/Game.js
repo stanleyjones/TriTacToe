@@ -3,13 +3,18 @@ import React, { Component, PropTypes } from 'react';
 import { Animated, Text } from 'react-native';
 
 import styles from '../styles';
-import { Button, GameBoard, PlayerIcon, Region } from './';
+import { Button, GameBoard, PlayerIcon, Region, SettingsModal, ToggleSettings } from './';
 import { BACKGROUND } from '../constants';
 
 export default class Game extends Component {
   constructor(props) {
     super(props);
-    this.state = { backgroundColor: new Animated.Value(0), winner: BACKGROUND };
+    this.state = {
+      backgroundColor: new Animated.Value(0),
+      settingsVisible: false,
+      winner: BACKGROUND,
+    };
+    this.toggleSettings = this.toggleSettings.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -20,6 +25,10 @@ export default class Game extends Component {
       this.setState({ winner: nextProps.player });
       Animated.timing(this.state.backgroundColor, { toValue: 100 }).start();
     }
+  }
+
+  toggleSettings(visibility) {
+    return () => { this.setState({ settingsVisible: visibility }); };
   }
 
   statusText(condition, player) {
@@ -43,6 +52,12 @@ export default class Game extends Component {
         <Region>{this.statusText(condition, player)}</Region>
         <Region><GameBoard {...this.props} condition={condition} /></Region>
         <Region>{condition > 1 ? <Button onPress={newGame}>New Game</Button> : null}</Region>
+
+        <ToggleSettings onPress={this.toggleSettings(true)}>Settings</ToggleSettings>
+        <SettingsModal
+          closeModal={this.toggleSettings(false)}
+          visible={this.state.settingsVisible}
+        />
       </Animated.View>
     );
   }

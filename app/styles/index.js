@@ -19,10 +19,6 @@ export default StyleSheet.create({
     padding: 10,
   },
 
-  boo: {
-    color: 'white',
-  },
-
   buttonText: Object.assign({}, text, {
     fontSize: 24,
     lineHeight: 24,
@@ -68,6 +64,19 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
 
+  settingsModal: {
+    alignItems: 'center',
+    backgroundColor: '#222',
+    flex: 1,
+    justifyContent: 'center',
+  },
+
   text,
+
+  toggleSettings: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+  },
 
 });
