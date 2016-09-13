@@ -48,6 +48,10 @@ export default StyleSheet.create({
     width: 75,
   },
 
+  label: Object.assign({}, text, {
+    fontSize: 24,
+  }),
+
   playerIcon: {
     borderRadius: 18,
     height: 36,
@@ -64,16 +68,30 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
 
+  segmentedControl: {
+    marginTop: 20,
+  },
+
   settingsModal: {
-    alignItems: 'center',
-    backgroundColor: '#222',
-    flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#444',
+    bottom: 0,
+    paddingBottom: 100,
+    position: 'absolute',
   },
 
   text,
 
-  toggleSettings: {
+  textButton: {
+    backgroundColor: 'transparent',
+  },
+
+  lowerLeft: {
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
+  },
+
+  lowerRight: {
     position: 'absolute',
     bottom: 20,
     right: 20,

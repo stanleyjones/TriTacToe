@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { Animated, Text } from 'react-native';
 
 import styles from '../styles';
-import { Button, GameBoard, PlayerIcon, Region, SettingsModal, ToggleSettings } from './';
+import { Button, GameBoard, PlayerIcon, Region, SettingsModal, TextButton } from './';
 import { BACKGROUND } from '../constants';
 
 export default class Game extends Component {
@@ -53,7 +53,7 @@ export default class Game extends Component {
         <Region><GameBoard {...this.props} condition={condition} /></Region>
         <Region>{condition > 1 ? <Button onPress={newGame}>New Game</Button> : null}</Region>
 
-        <ToggleSettings onPress={this.toggleSettings(true)}>Settings</ToggleSettings>
+        <TextButton onPress={this.toggleSettings(true)} right>Settings</TextButton>
         <SettingsModal
           closeModal={this.toggleSettings(false)}
           visible={this.state.settingsVisible}
