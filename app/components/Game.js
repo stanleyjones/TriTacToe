@@ -42,7 +42,7 @@ export default class Game extends Component {
   }
 
   render() {
-    const { condition, newGame, player } = this.props;
+    const { changeSettings, condition, newGame, player, settings } = this.props;
     const backgroundColor = this.state.backgroundColor.interpolate({
       inputRange: [0, 100],
       outputRange: [BACKGROUND, color(this.state.winner).darken(0.67).hexString()],
@@ -55,7 +55,9 @@ export default class Game extends Component {
 
         <TextButton onPress={this.toggleSettings(true)} right>Settings</TextButton>
         <SettingsModal
+          changeSettings={changeSettings}
           closeModal={this.toggleSettings(false)}
+          settings={settings}
           visible={this.state.settingsVisible}
         />
       </Animated.View>
@@ -64,7 +66,9 @@ export default class Game extends Component {
 }
 
 Game.propTypes = {
+  changeSettings: PropTypes.func,
   condition: PropTypes.number,
   newGame: PropTypes.func,
   player: PropTypes.string,
+  settings: PropTypes.object,
 };

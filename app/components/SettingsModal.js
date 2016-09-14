@@ -2,53 +2,71 @@ import React, { Component, PropTypes } from 'react';
 import { Dimensions, Modal, SegmentedControlIOS, Text, View } from 'react-native';
 
 import styles from '../styles';
-import { Button, Region, TextButton } from './';
+import { Region, TextButton } from './';
+
+const options = {
+  grid: [
+    { label: '4x4', value: 4 },
+    { label: '5x5', value: 5 },
+    { label: '6x6', value: 6 },
+  ],
+  obstacles: [
+    { label: 'No Obstacles', value: false },
+    { label: 'Obstacles', value: true },
+  ],
+  players: [
+    { label: '3 Players', value: 3 },
+    { label: '2 (1 Robot)', value: 2 },
+    { label: '1 (2 Robots)', value: 1 },
+  ],
+};
 
 export default class SettingsModal extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      gridIndex: 0,
-    };
+    this.state = Object.assign({}, props.settings);
+    this.changeSetting = this.changeSetting.bind(this);
     this.cancel = this.cancel.bind(this);
     this.confirm = this.confirm.bind(this);
   }
 
-  cancel() { this.props.closeModal(); }
-  confirm() { this.props.closeModal(); }
-
-  setGridSize(value) {
-    this.setState({ gridIndex: value });
+  changeSetting(setting) {
+    return (label) => {
+      this.setState({ [setting]: options[setting].find(option => option.label === label).value });
+    };
   }
+
+  confirm() { this.props.closeModal(); this.props.changeSettings(this.state); }
+  cancel() { this.props.closeModal(); this.setState(Object.assign({}, this.props.settings)); }
 
   render() {
     const { width } = Dimensions.get('window');
-    const segmentWidth = width - 2 * 20;
+    const segmentWidth = width - (2 * 20);
 
     return (
-      <Modal animationType="slide" transparent={true} visible={this.props.visible}>
+      <Modal animationType="slide" transparent visible={this.props.visible}>
         <View style={[styles.settingsModal, { width }]}>
           <Region>
             <Text style={styles.label}>Settings</Text>
             <SegmentedControlIOS
-              values={['4x4', '5x5', '6x6']}
-              selectedIndex={this.state.gridIndex}
+              values={options.grid.map(option => option.label)}
+              selectedIndex={options.grid.findIndex(option => option.value === this.state.grid)}
               tintColor="#fff"
-              onValueChange={this.setGridSize}
+              onValueChange={this.changeSetting('grid')}
               style={[styles.segmentedControl, { width: segmentWidth }]}
             />
             <SegmentedControlIOS
-              values={['No Obstacles', 'Obstacles']}
-              selectedIndex={this.state.gridIndex}
+              values={options.obstacles.map(option => option.label)}
+              selectedIndex={options.obstacles.findIndex(option => option.value === this.state.obstacles)}
               tintColor="#fff"
-              onValueChange={this.setGridSize}
+              onValueChange={this.changeSetting('obstacles')}
               style={[styles.segmentedControl, { width: segmentWidth }]}
             />
             <SegmentedControlIOS
-              values={['3 Players', '2 (1 Robot)', '1 (2 Robots)']}
-              selectedIndex={this.state.gridIndex}
+              values={options.players.map(option => option.label)}
+              selectedIndex={options.players.findIndex(option => option.value === this.state.players)}
               tintColor="#fff"
-              onValueChange={this.setGridSize}
+              onValueChange={this.changeSetting('players')}
               style={[styles.segmentedControl, { width: segmentWidth }]}
             />
           </Region>
@@ -61,7 +79,9 @@ export default class SettingsModal extends Component {
 }
 
 SettingsModal.propTypes = {
+  changeSettings: PropTypes.func,
   children: PropTypes.node,
   closeModal: PropTypes.func,
+  settings: PropTypes.object,
   visible: PropTypes.bool,
 };

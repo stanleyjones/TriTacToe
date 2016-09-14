@@ -34,11 +34,11 @@ export default class GameSpace extends Component {
   }
 
   render() {
-    const { board, condition, position, selectSpace } = this.props;
+    const { board, condition, position, selectSpace, settings } = this.props;
     const onPress = atPosition => () => { selectSpace(atPosition); };
     const player = getSpace(board, position) || SPACE;
 
-    const spaceSize = getSpaceSize();
+    const spaceSize = getSpaceSize(settings.grid);
     const spaceStyle = [styles.gameSpace, { height: spaceSize, width: spaceSize }];
     const tokenStyle = {
       height: spaceSize * 0.66,
@@ -71,4 +71,5 @@ GameSpace.propTypes = {
   index: PropTypes.number,
   position: PropTypes.array,
   selectSpace: PropTypes.func,
+  settings: PropTypes.object,
 };

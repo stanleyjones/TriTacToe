@@ -1,7 +1,6 @@
 import Sound from 'react-native-sound';
 
 export const BACKGROUND = '#222222';
-export const GRID = 4;
 export const PLAYERS = ['#FFD219', '#FF00E5', '#14CCBB'];
 export const SOUNDS = {
   lose: new Sound('lose.mp3', Sound.MAIN_BUNDLE),
