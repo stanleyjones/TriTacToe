@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { Animated, TouchableHighlight, View } from 'react-native';
 
 import styles from '../styles';
-import { SPACE } from '../constants';
+import { OBSTACLE, SPACE } from '../constants';
 import { getSpace, getSpaceSize } from '../helpers';
 
 export default class GameSpace extends Component {
@@ -46,10 +46,12 @@ export default class GameSpace extends Component {
       borderRadius: spaceSize * 0.33,
       backgroundColor: player,
     };
-    const backgroundColor = this.state.backgroundColor.interpolate({
-      inputRange: [0, 100],
-      outputRange: [SPACE, color(player).darken(0.33).hexString()],
-    });
+    const backgroundColor = player === OBSTACLE
+      ? 'transparent'
+      : this.state.backgroundColor.interpolate({
+        inputRange: [0, 100],
+        outputRange: [SPACE, color(player).darken(0.33).hexString()],
+      });
 
     return player !== SPACE || condition > 1 ? (
       <Animated.View style={[spaceStyle, { backgroundColor }]}>

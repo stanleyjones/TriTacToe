@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import { Dimensions, Modal, SegmentedControlIOS, Text, View } from 'react-native';
+import { Dimensions, Modal, Text, View } from 'react-native';
 
 import styles from '../styles';
-import { Region, TextButton } from './';
+import { Region, Setting, TextButton } from './';
 
 const options = {
   grid: [
@@ -13,11 +13,6 @@ const options = {
   obstacles: [
     { label: 'No Obstacles', value: false },
     { label: 'Obstacles', value: true },
-  ],
-  players: [
-    { label: '3 Players', value: 3 },
-    { label: '2 (1 Robot)', value: 2 },
-    { label: '1 (2 Robots)', value: 1 },
   ],
 };
 
@@ -41,37 +36,28 @@ export default class SettingsModal extends Component {
 
   render() {
     const { width } = Dimensions.get('window');
-    const segmentWidth = width - (2 * 20);
+    const settingWidth = width - (2 * 20);
 
     return (
       <Modal animationType="slide" transparent visible={this.props.visible}>
         <View style={[styles.settingsModal, { width }]}>
           <Region>
             <Text style={styles.label}>Settings</Text>
-            <SegmentedControlIOS
-              values={options.grid.map(option => option.label)}
-              selectedIndex={options.grid.findIndex(option => option.value === this.state.grid)}
-              tintColor="#fff"
-              onValueChange={this.changeSetting('grid')}
-              style={[styles.segmentedControl, { width: segmentWidth }]}
+            <Setting
+              onChange={this.changeSetting('grid')}
+              options={options.grid}
+              selected={this.state.grid}
+              width={settingWidth}
             />
-            <SegmentedControlIOS
-              values={options.obstacles.map(option => option.label)}
-              selectedIndex={options.obstacles.findIndex(option => option.value === this.state.obstacles)}
-              tintColor="#fff"
-              onValueChange={this.changeSetting('obstacles')}
-              style={[styles.segmentedControl, { width: segmentWidth }]}
-            />
-            <SegmentedControlIOS
-              values={options.players.map(option => option.label)}
-              selectedIndex={options.players.findIndex(option => option.value === this.state.players)}
-              tintColor="#fff"
-              onValueChange={this.changeSetting('players')}
-              style={[styles.segmentedControl, { width: segmentWidth }]}
+            <Setting
+              onChange={this.changeSetting('obstacles')}
+              options={options.obstacles}
+              selected={this.state.obstacles}
+              width={settingWidth}
             />
           </Region>
           <TextButton onPress={this.cancel} left negative>Cancel</TextButton>
-          <TextButton onPress={this.confirm} right positive>Confirm</TextButton>
+          <TextButton onPress={this.confirm} right positive>Restart</TextButton>
         </View>
       </Modal>
     );

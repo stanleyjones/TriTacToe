@@ -2,6 +2,8 @@ import shuffle from 'lodash/shuffle';
 import cloneDeep from 'lodash/cloneDeep';
 import { Dimensions } from 'react-native';
 
+import { OBSTACLE } from './constants';
+
 const createBoard = grid => new Array(grid).fill([]).map(() => new Array(grid).fill(null));
 
 const makeCombo = ([rowInit, colInit], [rowMod, colMod], length = 3) =>
@@ -20,18 +22,6 @@ const getWinCombos = board =>
     }, winCombos)
   , []);
 
-export const createGame = (players, settings) => {
-  const board = createBoard(settings.grid);
-  return {
-    board,
-    condition: 0,
-    player: 0,
-    players: shuffle(players),
-    settings,
-    winCombos: getWinCombos(board),
-  };
-};
-
 export const getSpace = (board, [row, col]) => board[row][col];
 
 export const getSpaceSize = (grid) => {
@@ -43,6 +33,31 @@ export const updateBoard = (board, [row, col], player) => {
   const newBoard = cloneDeep(board);
   newBoard[row][col] = player;
   return newBoard;
+};
+
+const addObstacles = board => {
+  const newBoard = cloneDeep(board);
+  let obstacles = board.length - 3;
+  while (obstacles--) {
+    const [row, col] = [
+      Math.floor(Math.random() * board.length),
+      Math.floor(Math.random() * board.length),
+    ];
+    newBoard[row][col] = OBSTACLE;
+  }
+  return newBoard;
+};
+
+export const createGame = (players, settings) => {
+  const board = createBoard(settings.grid);
+  return {
+    board: settings.obstacles ? addObstacles(board) : board,
+    condition: 0,
+    player: 0,
+    players: shuffle(players),
+    settings,
+    winCombos: getWinCombos(board),
+  };
 };
 
 const canAnyPlayerWin = (board, winCombos) =>
