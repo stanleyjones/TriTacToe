@@ -76,6 +76,7 @@ export default StyleSheet.create({
 
   segmentedControl: {
     marginTop: 20,
+    maxWidth: 480,
   },
 
   settingsModal: {
