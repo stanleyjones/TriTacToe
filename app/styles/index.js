@@ -1,8 +1,13 @@
 import { StyleSheet } from 'react-native';
 
+import { BACKGROUND, SETTINGS, SPACE } from '../constants';
+
+const LIGHT = 'HelveticaNeue-Light';
+const ULTRALIGHT = 'HelveticaNeue-UltraLight';
+
 const text = {
   color: 'white',
-  fontFamily: 'HelveticaNeue-UltraLight',
+  fontFamily: ULTRALIGHT,
   fontSize: 48,
   lineHeight: 48,
   margin: 10,
@@ -14,12 +19,13 @@ export default StyleSheet.create({
   button: {
     borderColor: 'white',
     borderRadius: 5,
-    borderWidth: 0.5,
+    borderWidth: 1,
     margin: 10,
     padding: 10,
   },
 
   buttonText: Object.assign({}, text, {
+    fontFamily: LIGHT,
     fontSize: 24,
     lineHeight: 24,
     margin: 0,
@@ -27,7 +33,7 @@ export default StyleSheet.create({
 
   game: {
     alignItems: 'center',
-    backgroundColor: '#222',
+    backgroundColor: BACKGROUND,
     flex: 1,
     justifyContent: 'center',
   },
@@ -39,7 +45,7 @@ export default StyleSheet.create({
 
   gameSpace: {
     alignItems: 'center',
-    backgroundColor: 'black',
+    backgroundColor: SPACE,
     borderRadius: 5,
     height: 75,
     justifyContent: 'center',
@@ -73,7 +79,7 @@ export default StyleSheet.create({
   },
 
   settingsModal: {
-    backgroundColor: '#444',
+    backgroundColor: SETTINGS,
     bottom: 0,
     paddingBottom: 100,
     position: 'absolute',
@@ -84,6 +90,12 @@ export default StyleSheet.create({
   textButton: {
     backgroundColor: 'transparent',
   },
+
+  textButtonText: Object.assign({}, text, {
+    color: '#666',
+    fontFamily: LIGHT,
+    fontSize: 16,
+  }),
 
   lowerLeft: {
     position: 'absolute',

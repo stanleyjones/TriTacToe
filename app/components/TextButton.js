@@ -4,8 +4,8 @@ import { Text, TouchableHighlight } from 'react-native';
 import styles from '../styles';
 
 export default function TextButton(props) {
-  const style = [props.textButton];
-  const textStyle = [props.textButtonText];
+  const style = [styles.textButton];
+  const textStyle = [styles.textButtonText];
 
   if (props.left) { style.push(styles.lowerLeft); }
   if (props.right) { style.push(styles.lowerRight); }
@@ -19,7 +19,11 @@ export default function TextButton(props) {
   );
 }
 TextButton.propTypes = {
-  onPress: PropTypes.func,
   children: PropTypes.node,
+  left: PropTypes.bool,
+  negative: PropTypes.bool,
+  onPress: PropTypes.func,
+  positive: PropTypes.bool,
+  right: PropTypes.bool,
   style: PropTypes.number,
 };

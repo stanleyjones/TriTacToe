@@ -12,4 +12,5 @@ export const SOUNDS = {
   ],
   win: new Sound('win.mp3', Sound.MAIN_BUNDLE),
 };
+export const SETTINGS = '#333';
 export const SPACE = '#111';
