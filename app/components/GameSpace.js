@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { Animated, TouchableHighlight, View } from 'react-native';
 
 import styles from '../styles';
-import { SPACE } from '../constants';
+import { OBSTACLE, SPACE } from '../constants';
 import { getSpace, getSpaceSize } from '../helpers';
 
 export default class GameSpace extends Component {
@@ -34,11 +34,11 @@ export default class GameSpace extends Component {
   }
 
   render() {
-    const { board, condition, position, selectSpace } = this.props;
+    const { board, condition, position, selectSpace, settings } = this.props;
     const onPress = atPosition => () => { selectSpace(atPosition); };
     const player = getSpace(board, position) || SPACE;
 
-    const spaceSize = getSpaceSize();
+    const spaceSize = getSpaceSize(settings.grid);
     const spaceStyle = [styles.gameSpace, { height: spaceSize, width: spaceSize }];
     const tokenStyle = {
       height: spaceSize * 0.66,
@@ -46,10 +46,12 @@ export default class GameSpace extends Component {
       borderRadius: spaceSize * 0.33,
       backgroundColor: player,
     };
-    const backgroundColor = this.state.backgroundColor.interpolate({
-      inputRange: [0, 100],
-      outputRange: [SPACE, color(player).darken(0.33).hexString()],
-    });
+    const backgroundColor = player === OBSTACLE
+      ? 'transparent'
+      : this.state.backgroundColor.interpolate({
+        inputRange: [0, 100],
+        outputRange: [SPACE, color(player).darken(0.33).hexString()],
+      });
 
     return player !== SPACE || condition > 1 ? (
       <Animated.View style={[spaceStyle, { backgroundColor }]}>
@@ -71,4 +73,5 @@ GameSpace.propTypes = {
   index: PropTypes.number,
   position: PropTypes.array,
   selectSpace: PropTypes.func,
+  settings: PropTypes.object,
 };

@@ -3,13 +3,18 @@ import React, { Component, PropTypes } from 'react';
 import { Animated, Text } from 'react-native';
 
 import styles from '../styles';
-import { Button, GameBoard, PlayerIcon, Region } from './';
+import { Button, GameBoard, PlayerIcon, Region, SettingsModal, TextButton } from './';
 import { BACKGROUND } from '../constants';
 
 export default class Game extends Component {
   constructor(props) {
     super(props);
-    this.state = { backgroundColor: new Animated.Value(0), winner: BACKGROUND };
+    this.state = {
+      backgroundColor: new Animated.Value(0),
+      settingsVisible: false,
+      winner: BACKGROUND,
+    };
+    this.toggleSettings = this.toggleSettings.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -20,6 +25,10 @@ export default class Game extends Component {
       this.setState({ winner: nextProps.player });
       Animated.timing(this.state.backgroundColor, { toValue: 100 }).start();
     }
+  }
+
+  toggleSettings(visibility) {
+    return () => { this.setState({ settingsVisible: visibility }); };
   }
 
   statusText(condition, player) {
@@ -33,7 +42,7 @@ export default class Game extends Component {
   }
 
   render() {
-    const { condition, newGame, player } = this.props;
+    const { changeSettings, condition, newGame, player, settings } = this.props;
     const backgroundColor = this.state.backgroundColor.interpolate({
       inputRange: [0, 100],
       outputRange: [BACKGROUND, color(this.state.winner).darken(0.67).hexString()],
@@ -43,13 +52,23 @@ export default class Game extends Component {
         <Region>{this.statusText(condition, player)}</Region>
         <Region><GameBoard {...this.props} condition={condition} /></Region>
         <Region>{condition > 1 ? <Button onPress={newGame}>New Game</Button> : null}</Region>
+
+        <TextButton onPress={this.toggleSettings(true)} right>Settings</TextButton>
+        <SettingsModal
+          changeSettings={changeSettings}
+          closeModal={this.toggleSettings(false)}
+          settings={settings}
+          visible={this.state.settingsVisible}
+        />
       </Animated.View>
     );
   }
 }
 
 Game.propTypes = {
+  changeSettings: PropTypes.func,
   condition: PropTypes.number,
   newGame: PropTypes.func,
   player: PropTypes.string,
+  settings: PropTypes.object,
 };
