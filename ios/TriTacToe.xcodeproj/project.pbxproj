@@ -22,6 +22,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		484C7F121DBB0DFB0010FF8A /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C7F111DBB0DFB0010FF8A /* Chartboost.framework */; };
+		484C7F171DBB13790010FF8A /* ChartboostBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 484C7F161DBB13790010FF8A /* ChartboostBridge.m */; };
 		48E01BAC1D7106C7006B8833 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E01BAB1D710658006B8833 /* libRNSound.a */; };
 		48E01BBB1D71D94E006B8833 /* lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48E01BB81D71D94E006B8833 /* lose.mp3 */; };
 		48E01BBC1D71D94E006B8833 /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48E01BB91D71D94E006B8833 /* select.mp3 */; };
@@ -136,6 +138,9 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TriTacToe/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TriTacToe/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		484C7F111DBB0DFB0010FF8A /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Chartboost.framework; sourceTree = "<group>"; };
+		484C7F151DBB12570010FF8A /* ChartboostBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartboostBridge.h; sourceTree = "<group>"; };
+		484C7F161DBB13790010FF8A /* ChartboostBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartboostBridge.m; sourceTree = "<group>"; };
 		48E01B9C1D710658006B8833 /* RNSound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		48E01BB81D71D94E006B8833 /* lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lose.mp3; path = ../assets/lose.mp3; sourceTree = "<group>"; };
 		48E01BB91D71D94E006B8833 /* select.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = select.mp3; path = ../assets/select.mp3; sourceTree = "<group>"; };
@@ -166,6 +171,7 @@
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
+				484C7F121DBB0DFB0010FF8A /* Chartboost.framework in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 			);
@@ -250,9 +256,8 @@
 		13B07FAE1A68108700A75B9A /* TriTacToe */ = {
 			isa = PBXGroup;
 			children = (
-				48E01BB81D71D94E006B8833 /* lose.mp3 */,
-				48E01BB91D71D94E006B8833 /* select.mp3 */,
-				48E01BBA1D71D94E006B8833 /* win.mp3 */,
+				484C7F111DBB0DFB0010FF8A /* Chartboost.framework */,
+				484C7F141DBB0F500010FF8A /* Sounds */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -260,6 +265,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				484C7F151DBB12570010FF8A /* ChartboostBridge.h */,
+				484C7F161DBB13790010FF8A /* ChartboostBridge.m */,
 			);
 			name = TriTacToe;
 			sourceTree = "<group>";
@@ -270,6 +277,16 @@
 				146834041AC3E56700842450 /* libReact.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		484C7F141DBB0F500010FF8A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				48E01BB81D71D94E006B8833 /* lose.mp3 */,
+				48E01BB91D71D94E006B8833 /* select.mp3 */,
+				48E01BBA1D71D94E006B8833 /* win.mp3 */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		48E01B9D1D710658006B8833 /* Products */ = {
@@ -591,6 +608,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				484C7F171DBB13790010FF8A /* ChartboostBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +673,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -681,6 +703,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

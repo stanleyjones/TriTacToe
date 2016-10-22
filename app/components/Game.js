@@ -1,5 +1,5 @@
 import color from 'color';
-import React, { Component, PropTypes } from 'react';
+import React, { Component, NativeModules, PropTypes } from 'react';
 import { Animated, Text } from 'react-native';
 
 import styles from '../styles';
@@ -15,6 +15,11 @@ export default class Game extends Component {
       winner: BACKGROUND,
     };
     this.toggleSettings = this.toggleSettings.bind(this);
+  }
+
+  componentDidMount() {
+    const { Chartboost } = NativeModules;
+    Chartboost.show('CBLocationGameScreen');
   }
 
   componentWillReceiveProps(nextProps) {
