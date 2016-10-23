@@ -24,6 +24,10 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		484C7F121DBB0DFB0010FF8A /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C7F111DBB0DFB0010FF8A /* Chartboost.framework */; };
 		484C7F171DBB13790010FF8A /* ChartboostBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 484C7F161DBB13790010FF8A /* ChartboostBridge.m */; };
+		484C7F251DBC69510010FF8A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C7F241DBC69510010FF8A /* StoreKit.framework */; };
+		484C7F321DBC69630010FF8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C7F311DBC69630010FF8A /* Foundation.framework */; };
+		484C7F341DBC69740010FF8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C7F331DBC69740010FF8A /* CoreGraphics.framework */; };
+		484C7F361DBC697F0010FF8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C7F351DBC697F0010FF8A /* UIKit.framework */; };
 		48E01BAC1D7106C7006B8833 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E01BAB1D710658006B8833 /* libRNSound.a */; };
 		48E01BBB1D71D94E006B8833 /* lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48E01BB81D71D94E006B8833 /* lose.mp3 */; };
 		48E01BBC1D71D94E006B8833 /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48E01BB91D71D94E006B8833 /* select.mp3 */; };
@@ -141,6 +145,10 @@
 		484C7F111DBB0DFB0010FF8A /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Chartboost.framework; sourceTree = "<group>"; };
 		484C7F151DBB12570010FF8A /* ChartboostBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartboostBridge.h; sourceTree = "<group>"; };
 		484C7F161DBB13790010FF8A /* ChartboostBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartboostBridge.m; sourceTree = "<group>"; };
+		484C7F241DBC69510010FF8A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		484C7F311DBC69630010FF8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		484C7F331DBC69740010FF8A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		484C7F351DBC697F0010FF8A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		48E01B9C1D710658006B8833 /* RNSound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		48E01BB81D71D94E006B8833 /* lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lose.mp3; path = ../assets/lose.mp3; sourceTree = "<group>"; };
 		48E01BB91D71D94E006B8833 /* select.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = select.mp3; path = ../assets/select.mp3; sourceTree = "<group>"; };
@@ -162,6 +170,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				484C7F361DBC697F0010FF8A /* UIKit.framework in Frameworks */,
+				484C7F341DBC69740010FF8A /* CoreGraphics.framework in Frameworks */,
+				484C7F321DBC69630010FF8A /* Foundation.framework in Frameworks */,
+				484C7F251DBC69510010FF8A /* StoreKit.framework in Frameworks */,
 				48E01BAC1D7106C7006B8833 /* libRNSound.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -289,6 +301,17 @@
 			name = Sounds;
 			sourceTree = "<group>";
 		};
+		484C7F231DBC69510010FF8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				484C7F351DBC697F0010FF8A /* UIKit.framework */,
+				484C7F331DBC69740010FF8A /* CoreGraphics.framework */,
+				484C7F311DBC69630010FF8A /* Foundation.framework */,
+				484C7F241DBC69510010FF8A /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		48E01B9D1D710658006B8833 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +361,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* TriTacToeTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				484C7F231DBC69510010FF8A /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -397,7 +421,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -740,8 +764,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -750,6 +776,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -767,7 +794,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -787,8 +814,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -796,6 +825,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -807,7 +837,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
