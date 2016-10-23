@@ -1,6 +1,6 @@
 import color from 'color';
-import React, { Component, NativeModules, PropTypes } from 'react';
-import { Animated, Text } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { Animated, NativeModules, Text } from 'react-native';
 
 import styles from '../styles';
 import { Button, GameBoard, PlayerIcon, Region, SettingsModal, TextButton } from './';
@@ -18,8 +18,8 @@ export default class Game extends Component {
   }
 
   componentDidMount() {
-    const { Chartboost } = NativeModules;
-    Chartboost.show('CBLocationGameScreen');
+    const { ChartboostBridge } = NativeModules;
+    ChartboostBridge.showInterstitial();
   }
 
   componentWillReceiveProps(nextProps) {
