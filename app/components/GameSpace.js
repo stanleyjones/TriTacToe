@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from 'react';
 import { Animated, TouchableHighlight, View } from 'react-native';
 
 import styles from '../styles';
-import { OBSTACLE, SPACE } from '../constants';
 import { getSpace, getSpaceSize } from '../helpers';
 
 export default class GameSpace extends Component {
@@ -34,9 +33,9 @@ export default class GameSpace extends Component {
   }
 
   render() {
-    const { board, condition, position, selectSpace, settings } = this.props;
+    const { board, condition, position, selectSpace, settings, theme } = this.props;
     const onPress = atPosition => () => { selectSpace(atPosition); };
-    const player = getSpace(board, position) || SPACE;
+    const player = getSpace(board, position) || theme.space;
 
     const spaceSize = getSpaceSize(settings.grid);
     const spaceStyle = [styles.gameSpace, { height: spaceSize, width: spaceSize }];
@@ -46,20 +45,23 @@ export default class GameSpace extends Component {
       borderRadius: spaceSize * 0.33,
       backgroundColor: player,
     };
-    const backgroundColor = player === OBSTACLE
+    const backgroundColor = player === theme.obstacle
       ? 'transparent'
       : this.state.backgroundColor.interpolate({
         inputRange: [0, 100],
-        outputRange: [SPACE, color(player).darken(0.33).hexString()],
+        outputRange: [theme.space, color(player).darken(0.33).hexString()],
       });
 
-    return player !== SPACE || condition > 1 ? (
+    return player !== theme.space || condition > 1 ? (
       <Animated.View style={[spaceStyle, { backgroundColor }]}>
         <View style={tokenStyle} />
       </Animated.View>
     ) : (
       <Animated.View style={{ opacity: this.state.opacity }}>
-        <TouchableHighlight onPress={onPress(position)} style={spaceStyle}>
+        <TouchableHighlight
+          onPress={onPress(position)}
+          style={[spaceStyle, { backgroundColor: theme.space }]}
+        >
           <View />
         </TouchableHighlight>
       </Animated.View>
@@ -74,4 +76,5 @@ GameSpace.propTypes = {
   position: PropTypes.array,
   selectSpace: PropTypes.func,
   settings: PropTypes.object,
+  theme: PropTypes.object,
 };

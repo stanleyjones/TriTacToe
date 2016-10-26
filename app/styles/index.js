@@ -1,7 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-import { BACKGROUND, SETTINGS, SPACE } from '../constants';
-
 const LIGHT = 'HelveticaNeue-Light';
 const ULTRALIGHT = 'HelveticaNeue-UltraLight';
 
@@ -33,7 +31,6 @@ export default StyleSheet.create({
 
   game: {
     alignItems: 'center',
-    backgroundColor: BACKGROUND,
     flex: 1,
     justifyContent: 'center',
   },
@@ -45,7 +42,6 @@ export default StyleSheet.create({
 
   gameSpace: {
     alignItems: 'center',
-    backgroundColor: SPACE,
     borderRadius: 5,
     height: 75,
     justifyContent: 'center',
@@ -80,7 +76,7 @@ export default StyleSheet.create({
   },
 
   settingsModal: {
-    backgroundColor: SETTINGS,
+    backgroundColor: '#333',
     bottom: 0,
     paddingBottom: 100,
     position: 'absolute',
@@ -93,7 +89,7 @@ export default StyleSheet.create({
   },
 
   textButtonText: Object.assign({}, text, {
-    color: '#666',
+    color: '#fff',
     fontFamily: LIGHT,
     fontSize: 16,
   }),

@@ -2,7 +2,7 @@ import shuffle from 'lodash/shuffle';
 import cloneDeep from 'lodash/cloneDeep';
 import { Dimensions } from 'react-native';
 
-import { OBSTACLE } from './constants';
+import { THEMES } from './constants';
 
 const createBoard = grid => new Array(grid).fill([]).map(() => new Array(grid).fill(null));
 
@@ -43,19 +43,20 @@ const addObstacles = board => {
       Math.floor(Math.random() * board.length),
       Math.floor(Math.random() * board.length),
     ];
-    newBoard[row][col] = OBSTACLE;
+    newBoard[row][col] = THEMES[0].obstacle;
   }
   return newBoard;
 };
 
-export const createGame = (players, settings) => {
+export const createGame = settings => {
   const board = createBoard(settings.grid);
   return {
     board: settings.obstacles ? addObstacles(board) : board,
     condition: 0,
     player: 0,
-    players: shuffle(players),
+    players: shuffle(THEMES[settings.theme].players),
     settings,
+    theme: THEMES[settings.theme],
     winCombos: getWinCombos(board),
   };
 };

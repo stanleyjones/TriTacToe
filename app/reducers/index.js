@@ -1,17 +1,17 @@
 import { CHANGE_SETTINGS, NEW_GAME, SELECT_SPACE } from '../actions';
-import { PLAYERS, SOUNDS } from '../constants';
+import { SOUNDS } from '../constants';
 import { createGame, getCondition, updateBoard } from '../helpers';
 
-const initialSettings = { grid: 4, obstacles: false, players: 3 };
+const initialSettings = { grid: 4, obstacles: false, players: 3, theme: 0 };
 
-export default function rootReducer(state = createGame(PLAYERS, initialSettings), action) {
+export default function rootReducer(state = createGame(initialSettings), action) {
   switch (action.type) {
 
     case CHANGE_SETTINGS:
-      return Object.assign({}, state, createGame(PLAYERS, action.settings));
+      return Object.assign({}, state, createGame(action.settings));
 
     case NEW_GAME:
-      return Object.assign({}, state, createGame(PLAYERS, state.settings));
+      return Object.assign({}, state, createGame(state.settings));
 
     case SELECT_SPACE: {
       const { board, player, players, winCombos } = state;

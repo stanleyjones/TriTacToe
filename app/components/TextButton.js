@@ -5,7 +5,7 @@ import styles from '../styles';
 
 export default function TextButton(props) {
   const style = [styles.textButton];
-  const textStyle = [styles.textButtonText];
+  const textStyle = [styles.textButtonText, { color: props.theme.text }];
 
   if (props.left) { style.push(styles.lowerLeft); }
   if (props.right) { style.push(styles.lowerRight); }
@@ -25,5 +25,7 @@ TextButton.propTypes = {
   onPress: PropTypes.func,
   positive: PropTypes.bool,
   right: PropTypes.bool,
+  settings: PropTypes.object,
   style: PropTypes.number,
+  theme: PropTypes.object,
 };

@@ -3,18 +3,7 @@ import { Dimensions, Modal, Text, View } from 'react-native';
 
 import styles from '../styles';
 import { Region, Setting, TextButton } from './';
-
-const options = {
-  grid: [
-    { label: '4x4', value: 4 },
-    { label: '5x5', value: 5 },
-    { label: '6x6', value: 6 },
-  ],
-  obstacles: [
-    { label: 'No Obstacles', value: false },
-    { label: 'Obstacles', value: true },
-  ],
-};
+import { OPTIONS } from '../constants';
 
 export default class SettingsModal extends Component {
   constructor(props) {
@@ -27,7 +16,7 @@ export default class SettingsModal extends Component {
 
   changeSetting(setting) {
     return (label) => {
-      this.setState({ [setting]: options[setting].find(option => option.label === label).value });
+      this.setState({ [setting]: OPTIONS[setting].find(option => option.label === label).value });
     };
   }
 
@@ -43,21 +32,18 @@ export default class SettingsModal extends Component {
         <View style={[styles.settingsModal, { width }]}>
           <Region>
             <Text style={styles.label}>Settings</Text>
-            <Setting
-              onChange={this.changeSetting('grid')}
-              options={options.grid}
-              selected={this.state.grid}
-              width={settingWidth}
-            />
-            <Setting
-              onChange={this.changeSetting('obstacles')}
-              options={options.obstacles}
-              selected={this.state.obstacles}
-              width={settingWidth}
-            />
+            {Object.keys(OPTIONS).map(option => (
+              <Setting
+                key={option}
+                onChange={this.changeSetting(option)}
+                options={OPTIONS[option]}
+                selected={this.state[option]}
+                width={settingWidth}
+              />
+            ))}
           </Region>
-          <TextButton onPress={this.cancel} left negative>Cancel</TextButton>
-          <TextButton onPress={this.confirm} right positive>Restart</TextButton>
+          <TextButton {...this.props} onPress={this.cancel} left negative>Cancel</TextButton>
+          <TextButton {...this.props} onPress={this.confirm} right positive>Restart</TextButton>
         </View>
       </Modal>
     );
