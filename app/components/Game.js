@@ -17,8 +17,8 @@ export default class Game extends Component {
   }
 
   componentDidMount() {
-    const { ChartboostBridge } = NativeModules;
-    ChartboostBridge.showInterstitial();
+    // const { ChartboostBridge } = NativeModules;
+    // ChartboostBridge.showInterstitial();
   }
 
   componentWillReceiveProps(nextProps) {

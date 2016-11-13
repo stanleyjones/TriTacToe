@@ -1,6 +1,6 @@
 import shuffle from 'lodash/shuffle';
 import cloneDeep from 'lodash/cloneDeep';
-import { Dimensions } from 'react-native';
+import { AsyncStorage, Dimensions } from 'react-native';
 
 import { THEMES } from './constants';
 
@@ -84,3 +84,20 @@ export const getCondition = (board, winCombos) => {
   if (!canAnyPlayerWin(board, winCombos)) { return 3; }
   return 1;
 };
+
+export const loadState = async () => {
+  try {
+    const value = await AsyncStorage.getItem('TriTacToe:state');
+    if (value) { return JSON.parse(value); }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export const saveState = state => {
+  try {
+    AsyncStorage.setItem('TriTacToe:state', JSON.stringify(state));
+  } catch (err) {
+    console.error(err);
+  }
+}

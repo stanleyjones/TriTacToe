@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import App from './containers/App';
 import rootReducer from './reducers';
+import { loadState } from './helpers';
 
 const logger = store => next => action => {
   console.log('dispatching', action);
@@ -12,6 +13,7 @@ const logger = store => next => action => {
   return result;
 };
 
+const persistedState = loadState();
 const store = createStore(rootReducer, applyMiddleware(logger));
 
 export default function TriTacToe() {
