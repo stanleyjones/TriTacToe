@@ -13,8 +13,10 @@ const logger = store => next => action => {
   return result;
 };
 
-const persistedState = loadState();
-const store = createStore(rootReducer, applyMiddleware(logger));
+loadState((savedState) => {
+  // this isn't going to work, need to dispatch an action when state is loaded
+  const store = createStore(rootReducer, savedState, applyMiddleware(logger));
+});
 
 export default function TriTacToe() {
   return <Provider store={store}><App /></Provider>;

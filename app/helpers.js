@@ -8,7 +8,7 @@ const createBoard = grid => new Array(grid).fill([]).map(() => new Array(grid).f
 
 const makeCombo = ([rowInit, colInit], [rowMod, colMod], length = 3) =>
   new Array(length).fill(null).map((value, index) =>
-    [rowInit + (index * rowMod), colInit + (index * colMod)]
+    [rowInit + (index * rowMod), colInit + (index * colMod)],
   );
 
 const getWinCombos = board =>
@@ -35,20 +35,21 @@ export const updateBoard = (board, [row, col], player) => {
   return newBoard;
 };
 
-const addObstacles = board => {
+const addObstacles = (board) => {
   const newBoard = cloneDeep(board);
   let obstacles = board.length - 3;
-  while (obstacles--) {
+  while (obstacles) {
     const [row, col] = [
       Math.floor(Math.random() * board.length),
       Math.floor(Math.random() * board.length),
     ];
     newBoard[row][col] = THEMES[0].obstacle;
+    obstacles -= 1;
   }
   return newBoard;
 };
 
-export const createGame = settings => {
+export const createGame = (settings) => {
   const board = createBoard(settings.grid);
   return {
     board: settings.obstacles ? addObstacles(board) : board,
@@ -62,7 +63,7 @@ export const createGame = settings => {
 };
 
 const canAnyPlayerWin = (board, winCombos) =>
-  winCombos.some(combination => {
+  winCombos.some((combination) => {
     const players = combination.reduce((comboPlayers, position) => {
       const space = getSpace(board, position);
       return space ? comboPlayers.concat(space) : comboPlayers;
@@ -71,9 +72,9 @@ const canAnyPlayerWin = (board, winCombos) =>
   });
 
 export const getWinningCombo = (board, winCombos) =>
-  winCombos.find(combination => {
+  winCombos.find((combination) => {
     const firstSpace = getSpace(board, combination[0]);
-    return combination.every(position => {
+    return combination.every((position) => {
       const space = getSpace(board, position);
       return space && space === firstSpace;
     });
@@ -85,19 +86,22 @@ export const getCondition = (board, winCombos) => {
   return 1;
 };
 
-export const loadState = async () => {
+export const loadState = async (callback) => {
+  let state = null;
   try {
     const value = await AsyncStorage.getItem('TriTacToe:state');
-    if (value) { return JSON.parse(value); }
+    if (value) { state = JSON.parse(value); }
   } catch (err) {
-    console.error(err);
+    // do nothing
   }
-}
+  callback(state);
+};
 
-export const saveState = state => {
+export const saveState = (state) => {
   try {
     AsyncStorage.setItem('TriTacToe:state', JSON.stringify(state));
+    return state;
   } catch (err) {
-    console.error(err);
+    return null;
   }
-}
+};
