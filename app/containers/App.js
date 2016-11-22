@@ -19,6 +19,7 @@ const mapStateToProps = state => ({
   board: state.board,
   condition: state.condition,
   settings: state.settings,
+  theme: state.theme,
   winCombos: state.winCombos,
 });
 

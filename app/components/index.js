@@ -1,3 +1,4 @@
+export { default as AboutModal } from './AboutModal';
 export { default as Button } from './Button';
 export { default as Game } from './Game';
 export { default as GameBoard } from './GameBoard';
@@ -6,4 +7,4 @@ export { default as PlayerIcon } from './PlayerIcon';
 export { default as Region } from './Region';
 export { default as Setting } from './Setting';
 export { default as SettingsModal } from './SettingsModal';
-export { default as TextButton } from './TextButton';
+export { default as IconButton } from './IconButton';

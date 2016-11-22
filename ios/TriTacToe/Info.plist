@@ -51,5 +51,9 @@
 	<false/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>EvilIcons.ttf</string>
+	</array>
 </dict>
 </plist>

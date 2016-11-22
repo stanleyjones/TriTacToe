@@ -22,8 +22,15 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		484C7F121DBB0DFB0010FF8A /* Chartboost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C7F111DBB0DFB0010FF8A /* Chartboost.framework */; };
+		484C7F171DBB13790010FF8A /* ChartboostBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 484C7F161DBB13790010FF8A /* ChartboostBridge.m */; };
+		484C7F251DBC69510010FF8A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C7F241DBC69510010FF8A /* StoreKit.framework */; };
+		484C7F321DBC69630010FF8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C7F311DBC69630010FF8A /* Foundation.framework */; };
+		484C7F341DBC69740010FF8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C7F331DBC69740010FF8A /* CoreGraphics.framework */; };
+		484C7F361DBC697F0010FF8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 484C7F351DBC697F0010FF8A /* UIKit.framework */; };
 		489D32A91D7BEADE00A92A39 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 489D32A81D7BEADE00A92A39 /* main.jsbundle */; };
 		489D32AB1D7BEB4100A92A39 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 489D32AA1D7BEB4100A92A39 /* assets */; };
+		48A6ECBB1DE41F4500F3620B /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48A6ECBA1DE41F4500F3620B /* EvilIcons.ttf */; };
 		48E01BAC1D7106C7006B8833 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E01BAB1D710658006B8833 /* libRNSound.a */; };
 		48E01BBB1D71D94E006B8833 /* lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48E01BB81D71D94E006B8833 /* lose.mp3 */; };
 		48E01BBC1D71D94E006B8833 /* select.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48E01BB91D71D94E006B8833 /* select.mp3 */; };
@@ -95,6 +102,55 @@
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
 		};
+		48A6ECC01DE41F4500F3620B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D2A283A1D9B042B00D4039D;
+			remoteInfo = "RCTImage-tvOS";
+		};
+		48A6ECC41DE41F4500F3620B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D2A28471D9B043800D4039D;
+			remoteInfo = "RCTLinking-tvOS";
+		};
+		48A6ECC81DE41F4500F3620B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D2A28541D9B044C00D4039D;
+			remoteInfo = "RCTNetwork-tvOS";
+		};
+		48A6ECCC1DE41F4500F3620B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D2A28611D9B046600D4039D;
+			remoteInfo = "RCTSettings-tvOS";
+		};
+		48A6ECD01DE41F4500F3620B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D2A287B1D9B048500D4039D;
+			remoteInfo = "RCTText-tvOS";
+		};
+		48A6ECD51DE41F4500F3620B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D2A28881D9B049200D4039D;
+			remoteInfo = "RCTWebSocket-tvOS";
+		};
+		48A6ECD91DE41F4500F3620B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D2A28131D9B038B00D4039D;
+			remoteInfo = "React-tvOS";
+		};
 		48E01BAA1D710658006B8833 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 48E01B9C1D710658006B8833 /* RNSound.xcodeproj */;
@@ -137,8 +193,16 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TriTacToe/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TriTacToe/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		484C7F111DBB0DFB0010FF8A /* Chartboost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Chartboost.framework; sourceTree = "<group>"; };
+		484C7F151DBB12570010FF8A /* ChartboostBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartboostBridge.h; sourceTree = "<group>"; };
+		484C7F161DBB13790010FF8A /* ChartboostBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartboostBridge.m; sourceTree = "<group>"; };
+		484C7F241DBC69510010FF8A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		484C7F311DBC69630010FF8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		484C7F331DBC69740010FF8A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		484C7F351DBC697F0010FF8A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		489D32A81D7BEADE00A92A39 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = TriTacToe/main.jsbundle; sourceTree = "<group>"; };
 		489D32AA1D7BEB4100A92A39 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		48A6ECBA1DE41F4500F3620B /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		48E01B9C1D710658006B8833 /* RNSound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		48E01BB81D71D94E006B8833 /* lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lose.mp3; path = ../assets/lose.mp3; sourceTree = "<group>"; };
 		48E01BB91D71D94E006B8833 /* select.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = select.mp3; path = ../assets/select.mp3; sourceTree = "<group>"; };
@@ -160,6 +224,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				484C7F361DBC697F0010FF8A /* UIKit.framework in Frameworks */,
+				484C7F341DBC69740010FF8A /* CoreGraphics.framework in Frameworks */,
+				484C7F321DBC69630010FF8A /* Foundation.framework in Frameworks */,
+				484C7F251DBC69510010FF8A /* StoreKit.framework in Frameworks */,
 				48E01BAC1D7106C7006B8833 /* libRNSound.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -169,6 +237,7 @@
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
+				484C7F121DBB0DFB0010FF8A /* Chartboost.framework in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 			);
@@ -197,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				00C302C01ABCB91800DB3ED1 /* libRCTImage.a */,
+				48A6ECC11DE41F4500F3620B /* libRCTImage-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */,
+				48A6ECC91DE41F4500F3620B /* libRCTNetwork-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				139105C11AF99BAD00B5F7CC /* libRCTSettings.a */,
+				48A6ECCD1DE41F4500F3620B /* libRCTSettings-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				139FDEF41B06529B00C62182 /* libRCTWebSocket.a */,
+				48A6ECD61DE41F4500F3620B /* libRCTWebSocket-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,15 +328,16 @@
 			children = (
 				489D32AA1D7BEB4100A92A39 /* assets */,
 				489D32A81D7BEADE00A92A39 /* main.jsbundle */,
-				48E01BB81D71D94E006B8833 /* lose.mp3 */,
-				48E01BB91D71D94E006B8833 /* select.mp3 */,
-				48E01BBA1D71D94E006B8833 /* win.mp3 */,
+				484C7F141DBB0F500010FF8A /* Sounds */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				484C7F151DBB12570010FF8A /* ChartboostBridge.h */,
+				484C7F161DBB13790010FF8A /* ChartboostBridge.m */,
+				48A6ECBA1DE41F4500F3620B /* EvilIcons.ttf */,
 			);
 			name = TriTacToe;
 			sourceTree = "<group>";
@@ -272,8 +346,31 @@
 			isa = PBXGroup;
 			children = (
 				146834041AC3E56700842450 /* libReact.a */,
+				48A6ECDA1DE41F4500F3620B /* libReact-tvOS.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		484C7F141DBB0F500010FF8A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				48E01BB81D71D94E006B8833 /* lose.mp3 */,
+				48E01BB91D71D94E006B8833 /* select.mp3 */,
+				48E01BBA1D71D94E006B8833 /* win.mp3 */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+		484C7F231DBC69510010FF8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				484C7F111DBB0DFB0010FF8A /* Chartboost.framework */,
+				484C7F351DBC697F0010FF8A /* UIKit.framework */,
+				484C7F331DBC69740010FF8A /* CoreGraphics.framework */,
+				484C7F311DBC69630010FF8A /* Foundation.framework */,
+				484C7F241DBC69510010FF8A /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		48E01B9D1D710658006B8833 /* Products */ = {
@@ -288,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				78C398B91ACF4ADC00677621 /* libRCTLinking.a */,
+				48A6ECC51DE41F4500F3620B /* libRCTLinking-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -314,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				832341B51AAA6A8300B99B32 /* libRCTText.a */,
+				48A6ECD11DE41F4500F3620B /* libRCTText-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -325,6 +424,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* TriTacToeTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				484C7F231DBC69510010FF8A /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -518,6 +618,55 @@
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		48A6ECC11DE41F4500F3620B /* libRCTImage-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTImage-tvOS.a";
+			remoteRef = 48A6ECC01DE41F4500F3620B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		48A6ECC51DE41F4500F3620B /* libRCTLinking-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTLinking-tvOS.a";
+			remoteRef = 48A6ECC41DE41F4500F3620B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		48A6ECC91DE41F4500F3620B /* libRCTNetwork-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTNetwork-tvOS.a";
+			remoteRef = 48A6ECC81DE41F4500F3620B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		48A6ECCD1DE41F4500F3620B /* libRCTSettings-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTSettings-tvOS.a";
+			remoteRef = 48A6ECCC1DE41F4500F3620B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		48A6ECD11DE41F4500F3620B /* libRCTText-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTText-tvOS.a";
+			remoteRef = 48A6ECD01DE41F4500F3620B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		48A6ECD61DE41F4500F3620B /* libRCTWebSocket-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTWebSocket-tvOS.a";
+			remoteRef = 48A6ECD51DE41F4500F3620B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		48A6ECDA1DE41F4500F3620B /* libReact-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libReact-tvOS.a";
+			remoteRef = 48A6ECD91DE41F4500F3620B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		48E01BAB1D710658006B8833 /* libRNSound.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -554,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48E01BBD1D71D94E006B8833 /* win.mp3 in Resources */,
+				48A6ECBB1DE41F4500F3620B /* EvilIcons.ttf in Resources */,
 				48E01BBC1D71D94E006B8833 /* select.mp3 in Resources */,
 				489D32AB1D7BEB4100A92A39 /* assets in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
@@ -597,6 +747,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				484C7F171DBB13790010FF8A /* ChartboostBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +812,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -687,6 +842,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -720,8 +879,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -730,6 +891,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -767,8 +929,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -776,6 +940,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
