@@ -10,26 +10,28 @@ export default class Game extends Component {
     super(props);
     this.state = {
       backgroundColor: new Animated.Value(0),
-      settings: false,
-      about: false,
+      games: 0,
+      showAbout: false,
+      showSettings: false,
       winner: props.theme.background,
     };
+    this.showInterstitial = this.showInterstitial.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
-  }
-
-  componentDidMount() {
-    // const { ChartboostBridge } = NativeModules;
-    // ChartboostBridge.showInterstitial();
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.condition === 0) {
+      this.setState({ games: this.state.games += 1 }, this.showInterstitial);
       Animated.timing(this.state.backgroundColor, { toValue: 0 }).start();
     }
     if (nextProps.condition === 2) {
       this.setState({ winner: nextProps.player });
       Animated.timing(this.state.backgroundColor, { toValue: 100 }).start();
     }
+  }
+
+  showInterstitial() {
+    if (this.state.games % 3 === 0) { NativeModules.ChartboostBridge.showInterstitial(); }
   }
 
   toggleModal(modal, visibility) {
@@ -40,8 +42,8 @@ export default class Game extends Component {
     const textStyle = [styles.text, { color: this.props.theme.text }];
     switch (condition) {
       case 0:
-      case 1: return <Text style={textStyle}>Player <PlayerIcon player={player} />'s turn</Text>;
-      case 2: return <Text style={textStyle}>Player <PlayerIcon player={player} /> wins!</Text>;
+      case 1: return <Text style={textStyle}><PlayerIcon player={player} />&apos;s turn</Text>;
+      case 2: return <Text style={textStyle}><PlayerIcon player={player} /> wins!</Text>;
       case 3: return <Text style={textStyle}>No one wins</Text>;
       default: return null;
     }
@@ -64,20 +66,30 @@ export default class Game extends Component {
           <Button theme={theme} onPress={newGame}>New Game</Button>
         : null}</Region>
 
-        <IconButton name="question" theme={theme} onPress={this.toggleModal('about', true)} left />
-        <AboutModal
-          closeModal={this.toggleModal('about', false)}
+        <IconButton
+          name="question"
+          onPress={this.toggleModal('showAbout', true)}
           theme={theme}
-          visible={this.state.about}
+          left
+        />
+        <AboutModal
+          closeModal={this.toggleModal('showAbout', false)}
+          theme={theme}
+          visible={this.state.showAbout}
         />
 
-        <IconButton name="gear" theme={theme} onPress={this.toggleModal('settings', true)} right />
+        <IconButton
+          name="gear"
+          onPress={this.toggleModal('showSettings', true)}
+          theme={theme}
+          right
+        />
         <SettingsModal
           changeSettings={changeSettings}
-          closeModal={this.toggleModal('settings', false)}
+          closeModal={this.toggleModal('showSettings', false)}
           settings={settings}
           theme={theme}
-          visible={this.state.settings}
+          visible={this.state.showSettings}
         />
       </Animated.View>
     );
@@ -89,6 +101,17 @@ Game.propTypes = {
   condition: PropTypes.number,
   newGame: PropTypes.func,
   player: PropTypes.string,
-  settings: PropTypes.object,
-  theme: PropTypes.object,
+  settings: PropTypes.shape({
+    grid: PropTypes.number,
+    obstacles: PropTypes.bool,
+    players: PropTypes.number,
+    theme: PropTypes.number,
+  }),
+  theme: PropTypes.shape({
+    background: PropTypes.string,
+    obstacle: PropTypes.string,
+    players: PropTypes.arrayOf(PropTypes.string),
+    space: PropTypes.string,
+    text: PropTypes.string,
+  }),
 };

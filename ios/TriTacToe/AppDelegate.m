@@ -35,9 +35,9 @@
   [self.window makeKeyAndVisible];
   
   // Initialize the Chartboost library
-//  [Chartboost startWithAppId:@"580a4275f6cd4550a07346c3"
-//                appSignature:@"56214869bc38c4d35665cb7b35c88fdc7b7b7a58"
-//                    delegate:self];
+  [Chartboost startWithAppId:@"580a4275f6cd4550a07346c3"
+                appSignature:@"56214869bc38c4d35665cb7b35c88fdc7b7b7a58"
+                    delegate:self];
   
   return YES;
 }

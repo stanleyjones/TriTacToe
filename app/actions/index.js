@@ -9,24 +9,16 @@ export const SELECT_SPACE = 'SELECT_SPACE';
 
 // Action Creators
 
+export const loadSettings = settings => ({ type: LOAD_SETTINGS, settings });
 export const newGame = () => ({ type: NEW_GAME });
 export const selectSpace = position => ({ type: SELECT_SPACE, position });
-export const loadSettings = settings => ({ type: LOAD_SETTINGS, settings });
 
 export const asyncLoadSettings = async (store) => {
-  try {
-    const value = await AsyncStorage.getItem('TriTacToe:settings');
-    if (value) { store.dispatch(loadSettings(JSON.parse(value))); }
-  } catch (err) {
-    // nothing
-  }
+  const value = await AsyncStorage.getItem('TriTacToe:settings');
+  if (value) { store.dispatch(loadSettings(JSON.parse(value))); }
 };
 
 export const changeSettings = (settings) => {
-  try {
-    AsyncStorage.setItem('TriTacToe:settings', JSON.stringify(settings));
-  } catch (err) {
-    // nothing
-  }
+  AsyncStorage.setItem('TriTacToe:settings', JSON.stringify(settings));
   return ({ type: CHANGE_SETTINGS, settings });
 };

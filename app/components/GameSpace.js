@@ -70,11 +70,22 @@ export default class GameSpace extends Component {
 }
 
 GameSpace.propTypes = {
-  board: PropTypes.array,
+  board: PropTypes.arrayOf(PropTypes.array),
   condition: PropTypes.number,
   index: PropTypes.number,
-  position: PropTypes.array,
+  position: PropTypes.arrayOf(PropTypes.number),
   selectSpace: PropTypes.func,
-  settings: PropTypes.object,
-  theme: PropTypes.object,
+  settings: PropTypes.shape({
+    grid: PropTypes.number,
+    obstacles: PropTypes.bool,
+    players: PropTypes.number,
+    theme: PropTypes.number,
+  }),
+  theme: PropTypes.shape({
+    background: PropTypes.string,
+    obstacle: PropTypes.string,
+    players: PropTypes.arrayOf(PropTypes.string),
+    space: PropTypes.string,
+    text: PropTypes.string,
+  }),
 };

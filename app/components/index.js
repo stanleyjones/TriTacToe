@@ -8,4 +8,3 @@ export { default as Region } from './Region';
 export { default as Setting } from './Setting';
 export { default as SettingsModal } from './SettingsModal';
 export { default as IconButton } from './IconButton';
-export { default as TextButton } from './TextButton';

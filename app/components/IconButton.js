@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Text, TouchableHighlight } from 'react-native';
+import { TouchableHighlight } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 import styles from '../styles';
@@ -25,7 +25,11 @@ IconButton.propTypes = {
   onPress: PropTypes.func,
   positive: PropTypes.bool,
   right: PropTypes.bool,
-  settings: PropTypes.object,
-  style: PropTypes.number,
-  theme: PropTypes.object,
+  theme: PropTypes.shape({
+    background: PropTypes.string,
+    obstacle: PropTypes.string,
+    players: PropTypes.arrayOf(PropTypes.string),
+    space: PropTypes.string,
+    text: PropTypes.string,
+  }),
 };

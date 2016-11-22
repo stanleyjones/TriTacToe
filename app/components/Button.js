@@ -14,5 +14,7 @@ export default function Button(props) {
 Button.propTypes = {
   onPress: PropTypes.func,
   children: PropTypes.node,
-  theme: PropTypes.object,
+  theme: PropTypes.shape({
+    text: PropTypes.string,
+  }),
 };

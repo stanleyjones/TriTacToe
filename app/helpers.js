@@ -1,6 +1,6 @@
 import shuffle from 'lodash/shuffle';
 import cloneDeep from 'lodash/cloneDeep';
-import { AsyncStorage, Dimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 
 import { THEMES } from './constants';
 

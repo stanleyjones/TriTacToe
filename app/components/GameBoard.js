@@ -27,7 +27,7 @@ export default function GameBoard(props) {
 }
 
 GameBoard.propTypes = {
-  board: PropTypes.array,
+  board: PropTypes.arrayOf(PropTypes.array),
   condition: PropTypes.number,
-  winCombos: PropTypes.array,
+  winCombos: PropTypes.arrayOf(PropTypes.array),
 };
