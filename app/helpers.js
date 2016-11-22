@@ -85,23 +85,3 @@ export const getCondition = (board, winCombos) => {
   if (!canAnyPlayerWin(board, winCombos)) { return 3; }
   return 1;
 };
-
-export const loadState = async (callback) => {
-  let state = null;
-  try {
-    const value = await AsyncStorage.getItem('TriTacToe:state');
-    if (value) { state = JSON.parse(value); }
-  } catch (err) {
-    // do nothing
-  }
-  callback(state);
-};
-
-export const saveState = (state) => {
-  try {
-    AsyncStorage.setItem('TriTacToe:state', JSON.stringify(state));
-    return state;
-  } catch (err) {
-    return null;
-  }
-};
