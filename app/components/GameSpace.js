@@ -52,11 +52,12 @@ export default class GameSpace extends Component {
         outputRange: [theme.space, color(player).darken(0.33).hexString()],
       });
 
-    return player !== theme.space || condition > 1 ? (
+    const filledSpace = (
       <Animated.View style={[spaceStyle, { backgroundColor }]}>
         <View style={tokenStyle} />
       </Animated.View>
-    ) : (
+    );
+    const unfilledSpace = (
       <Animated.View style={{ opacity: this.state.opacity }}>
         <TouchableHighlight
           onPress={onPress(position)}
@@ -66,6 +67,8 @@ export default class GameSpace extends Component {
         </TouchableHighlight>
       </Animated.View>
     );
+
+    return player !== theme.space || condition > 1 ? filledSpace : unfilledSpace;
   }
 }
 

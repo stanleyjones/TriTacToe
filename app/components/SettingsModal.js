@@ -52,8 +52,12 @@ export default class SettingsModal extends Component {
 
 SettingsModal.propTypes = {
   changeSettings: PropTypes.func,
-  children: PropTypes.node,
   closeModal: PropTypes.func,
-  settings: PropTypes.object,
+  settings: PropTypes.shape({
+    grid: PropTypes.number,
+    obstacles: PropTypes.bool,
+    players: PropTypes.number,
+    theme: PropTypes.number,
+  }),
   visible: PropTypes.bool,
 };

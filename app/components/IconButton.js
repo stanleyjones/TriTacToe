@@ -21,6 +21,7 @@ export default function IconButton(props) {
 }
 IconButton.propTypes = {
   left: PropTypes.bool,
+  name: PropTypes.string,
   negative: PropTypes.bool,
   onPress: PropTypes.func,
   positive: PropTypes.bool,
