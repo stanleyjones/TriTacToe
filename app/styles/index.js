@@ -14,6 +14,14 @@ const text = {
 
 export default StyleSheet.create({
 
+  about: {
+    color: 'white',
+    fontFamily: LIGHT,
+    fontSize: 18,
+    lineHeight: 30,
+    margin: 10,
+  },
+
   button: {
     borderColor: 'white',
     borderRadius: 5,
@@ -51,7 +59,8 @@ export default StyleSheet.create({
   },
 
   label: Object.assign({}, text, {
-    fontSize: 24,
+    fontSize: 32,
+    margin: 20,
   }),
 
   playerIcon: {

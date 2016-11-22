@@ -20,7 +20,8 @@
     "eslint-config-airbnb": "13.0.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
-    "eslint-plugin-react": "6.6.0"
+    "eslint-plugin-react": "6.6.0",
+    "react-native-vector-icons": "^3.0.0"
   },
   "eslintConfig": {
     "extends": "airbnb",

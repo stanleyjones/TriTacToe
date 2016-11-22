@@ -12,8 +12,9 @@ export const OPTIONS = {
   ],
   theme: [
     { label: 'Original', value: 0 },
-    { label: 'Mocha', value: 1 },
-    { label: 'Jalapeño', value: 2 },
+    { label: 'Iceberg', value: 1 },
+    { label: 'Volcano', value: 2 },
+    { label: 'Rainforest', value: 3 },
   ],
 };
 
@@ -36,17 +37,24 @@ export const THEMES = [
     text: '#fff',
   },
   {
-    background: '#633',
+    background: '#222',
     obstacle: 'transparent',
-    players: ['brown', 'purple', 'violet'],
-    space: '#422',
-    text: '#f99',
+    players: ['#ad0dff', '#0066ff', '#00ff87'],
+    space: '#111',
+    text: '#fff',
   },
   {
-    background: '#600',
+    background: '#222',
     obstacle: 'transparent',
-    players: ['orange', 'yellow', 'red'],
-    space: '#511',
-    text: '#f90',
+    players: ['#fff306', '#ff8d07', '#ff0724'],
+    space: '#111',
+    text: '#fff',
+  },
+  {
+    background: '#222',
+    obstacle: 'transparent',
+    players: ['#46fcff', '#68ff53', '#ffe653'],
+    space: '#111',
+    text: '#fff',
   },
 ];

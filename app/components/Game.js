@@ -3,17 +3,18 @@ import React, { Component, PropTypes } from 'react';
 import { Animated, NativeModules, Text } from 'react-native';
 
 import styles from '../styles';
-import { Button, GameBoard, PlayerIcon, Region, SettingsModal, TextButton } from './';
+import { AboutModal, Button, GameBoard, PlayerIcon, Region, SettingsModal, IconButton } from './';
 
 export default class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
       backgroundColor: new Animated.Value(0),
-      settingsVisible: false,
+      settings: false,
+      about: false,
       winner: props.theme.background,
     };
-    this.toggleSettings = this.toggleSettings.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   componentDidMount() {
@@ -31,8 +32,8 @@ export default class Game extends Component {
     }
   }
 
-  toggleSettings(visibility) {
-    return () => { this.setState({ settingsVisible: visibility }); };
+  toggleModal(modal, visibility) {
+    return () => { this.setState({ [modal]: visibility }); };
   }
 
   statusText(condition, player) {
@@ -63,13 +64,20 @@ export default class Game extends Component {
           <Button theme={theme} onPress={newGame}>New Game</Button>
         : null}</Region>
 
-        <TextButton theme={theme} onPress={this.toggleSettings(true)} right>Settings</TextButton>
+        <IconButton name="question" theme={theme} onPress={this.toggleModal('about', true)} left />
+        <AboutModal
+          closeModal={this.toggleModal('about', false)}
+          theme={theme}
+          visible={this.state.about}
+        />
+
+        <IconButton name="gear" theme={theme} onPress={this.toggleModal('settings', true)} right />
         <SettingsModal
           changeSettings={changeSettings}
-          closeModal={this.toggleSettings(false)}
+          closeModal={this.toggleModal('settings', false)}
           settings={settings}
           theme={theme}
-          visible={this.state.settingsVisible}
+          visible={this.state.settings}
         />
       </Animated.View>
     );

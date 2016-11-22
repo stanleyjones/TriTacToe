@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Dimensions, Modal, Text, View } from 'react-native';
 
 import styles from '../styles';
-import { Region, Setting, TextButton } from './';
+import { Region, Setting, IconButton } from './';
 import { OPTIONS } from '../constants';
 
 export default class SettingsModal extends Component {
@@ -42,8 +42,8 @@ export default class SettingsModal extends Component {
               />
             ))}
           </Region>
-          <TextButton {...this.props} onPress={this.cancel} left negative>Cancel</TextButton>
-          <TextButton {...this.props} onPress={this.confirm} right positive>Restart</TextButton>
+          <IconButton {...this.props} name="close" onPress={this.cancel} left negative />
+          <IconButton {...this.props} name="refresh" onPress={this.confirm} right positive />
         </View>
       </Modal>
     );
