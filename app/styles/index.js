@@ -20,6 +20,8 @@ export default StyleSheet.create({
     fontSize: 18,
     lineHeight: 30,
     margin: 10,
+    maxWidth: 480,
+    paddingBottom: 30,
   },
 
   button: {
@@ -60,7 +62,7 @@ export default StyleSheet.create({
 
   label: Object.assign({}, text, {
     fontSize: 32,
-    margin: 20,
+    marginTop: 20,
   }),
 
   playerIcon: {

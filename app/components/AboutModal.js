@@ -14,12 +14,13 @@ export default class AboutModal extends Component {
 
   render() {
     const { width } = Dimensions.get('window');
+    const textWidth = width - (2 * 20);
     return (
       <Modal animationType="slide" transparent visible={this.props.visible}>
         <View style={[styles.settingsModal, { width }]}>
           <Region>
             <Text style={styles.label}>About</Text>
-            <Text style={styles.about}>
+            <Text style={[styles.about, { width: textWidth }]}>
               TriTacToe is a game of tic-tac-toe for three players.
               Take turns with your friends.
               The board is larger but you still only need 3 squares in a row to win.
