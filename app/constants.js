@@ -39,7 +39,7 @@ export const THEMES = [
   {
     background: '#222',
     obstacle: 'transparent',
-    players: ['#ad0dff', '#0066ff', '#00ff87'],
+    players: ['#2491ff', '#555399', '#bebecc'],
     space: '#111',
     text: '#fff',
   },

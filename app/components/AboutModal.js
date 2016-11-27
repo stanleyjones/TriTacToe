@@ -20,10 +20,10 @@ export default class AboutModal extends Component {
           <Region>
             <Text style={styles.label}>About</Text>
             <Text style={styles.about}>
-              TriTacToe is a game of tic-tac-toe but for three players.
+              TriTacToe is a game of tic-tac-toe for three players.
               Take turns with your friends.
-              The board may be larger but you still only need 3 squares in a row to win.
-              Check out advanced settings for more options and to change the color theme.
+              The board is larger but you still only need 3 squares in a row to win.
+              See Settings for more options and colors.
             </Text>
           </Region>
           <IconButton {...this.props} name="close" onPress={this.close} left negative />

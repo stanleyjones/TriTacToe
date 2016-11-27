@@ -9,6 +9,8 @@ export default function rootReducer(state = createGame(initialSettings), action)
 
     case LOAD_SETTINGS:
     case CHANGE_SETTINGS:
+      return Object.assign({}, state, createGame(action.settings));
+
     case NEW_GAME:
       return Object.assign({}, state, createGame(state.settings));
 

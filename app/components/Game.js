@@ -31,7 +31,7 @@ export default class Game extends Component {
   }
 
   showInterstitial() {
-    if (this.state.games % 3 === 0) { NativeModules.ChartboostBridge.showInterstitial(); }
+    if (this.state.games % 5 === 0) { NativeModules.ChartboostBridge.showInterstitial(); }
   }
 
   toggleModal(modal, visibility) {
